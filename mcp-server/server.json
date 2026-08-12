@@ -1,0 +1,51 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.ArnasDon/VEERCRM-mcp",
+  "description": "Drive a self-hosted VEERCRM WhatsApp CRM from Claude, Cursor and other MCP clients.",
+  "repository": {
+    "url": "https://github.com/ArnasDon/VEERCRM",
+    "source": "github",
+    "subfolder": "mcp-server"
+  },
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "VEERCRM-mcp",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "VEERCRM_BASE_URL",
+          "description": "Base URL of your VEERCRM instance, e.g. https://crm.example.com",
+          "isRequired": true,
+          "isSecret": false,
+          "format": "string"
+        },
+        {
+          "name": "VEERCRM_API_KEY",
+          "description": "VEERCRM API key (Settings → API keys). Its scopes decide what is allowed.",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "VEERCRM_ENABLE_WRITES",
+          "description": "Set to true to expose contact create/update and message sending. Read-only when unset.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        },
+        {
+          "name": "VEERCRM_ENABLE_BROADCASTS",
+          "description": "Set to true to expose the mass-broadcast tool. Requires VEERCRM_ENABLE_WRITES.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}
